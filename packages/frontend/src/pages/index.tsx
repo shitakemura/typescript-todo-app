@@ -1,7 +1,9 @@
+import TodoList from "src/components/todo/TodoList";
+
 export default function Home() {
   return (
     <div>
-      <h2>Frontend Todo App</h2>
+      <TodoList />
     </div>
   );
 }
