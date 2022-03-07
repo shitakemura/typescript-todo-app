@@ -2,6 +2,10 @@
   "name": "typescript-todo-app",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "frontend:dev": "yarn workspace frontend dev",
+    "frontend:lint": "yarn workspace frontend lint"
+  },
   "workspaces": {
     "packages": [
       "packages/*"
