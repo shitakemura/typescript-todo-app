@@ -1,5 +1,7 @@
-import TodoList from "src/components/todo/TodoList";
+import Home from "src/components/Home";
 
-export default function Home() {
-  return <TodoList />;
-}
+const HomePage = () => {
+  return <Home />;
+};
+
+export default HomePage;
