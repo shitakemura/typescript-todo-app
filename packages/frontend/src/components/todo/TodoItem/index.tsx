@@ -3,9 +3,9 @@ import { useRecoilState } from "recoil";
 import { Checkbox, HStack, IconButton, Text } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { Todo } from "@/shared/models/todo";
-import { todoListState } from "src/store/todo";
-import { useUpdateTodo } from "src/usecases/todo/useUpdateTodo";
-import { useDeleteTodo } from "src/usecases/todo/useDeleteTodo";
+import { todoListState } from "../../../store/todo";
+import { useUpdateTodo } from "../../../usecases/todo/useUpdateTodo";
+import { useDeleteTodo } from "../../../usecases/todo/useDeleteTodo";
 
 type Props = {
   todo: Todo;
