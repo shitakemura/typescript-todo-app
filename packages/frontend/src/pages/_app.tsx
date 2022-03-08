@@ -1,6 +1,8 @@
 import "@/styles/global.css";
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
+import { RecoilRoot } from "recoil";
+import ErrorBoundary from "src/components/ErrorBoundary";
 
 if (process.env.NODE_ENV === "development") {
   require("mocks/index");
@@ -8,8 +10,12 @@ if (process.env.NODE_ENV === "development") {
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <ErrorBoundary>
+      <RecoilRoot>
+        <ChakraProvider>
+          <Component {...pageProps} />
+        </ChakraProvider>
+      </RecoilRoot>
+    </ErrorBoundary>
   );
 }
