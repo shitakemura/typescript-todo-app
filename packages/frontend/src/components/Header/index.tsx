@@ -1,4 +1,6 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useCallback } from "react";
 
 type Props = {
   children: React.ReactNode;
@@ -20,7 +22,23 @@ const HeaderContainer = ({ children }: Props) => {
 };
 
 const MenuLinks = () => {
-  return <Box></Box>;
+  const { isAuthenticated, logout } = useAuth0();
+  const handleLogout = useCallback(() => {
+    logout({ returnTo: process.env.NEXT_PUBLIC_AUTH0_REDIRECT_URL ?? "" });
+  }, [logout]);
+
+  return (
+    <Box>
+      {isAuthenticated ? (
+        <Text
+          fontWeight='bold'
+          _hover={{ textDecoration: "underline" }}
+          onClick={handleLogout}>
+          Logout
+        </Text>
+      ) : null}
+    </Box>
+  );
 };
 
 const Header = () => {

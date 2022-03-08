@@ -16,3 +16,4 @@ frontend app built with Next.js using [yarn create next-app --example with-jest 
 - Global State: [recoil](https://recoiljs.org/docs/introduction/getting-started)
 - API mocking: [msw](https://github.com/vercel/next.js/tree/canary/examples/with-msw)
 - API Data fetching: [swr](https://swr.vercel.app/)
+- 認証: [@auth0/auth0-react](https://github.com/auth0/auth0-react)

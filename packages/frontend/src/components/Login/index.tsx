@@ -10,10 +10,18 @@ import {
   ModalFooter,
   Button,
 } from "@chakra-ui/react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useCallback } from "react";
 
 const Login = () => {
+  const { isLoading, loginWithRedirect } = useAuth0();
   const { onClose } = useDisclosure();
-  const handleClickLogin = () => {};
+
+  const handleClickLogin = useCallback(() => {
+    loginWithRedirect();
+  }, [loginWithRedirect]);
+
+  if (isLoading) return null;
 
   return (
     <Stack>
