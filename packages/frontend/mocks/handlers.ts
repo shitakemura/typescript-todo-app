@@ -19,4 +19,10 @@ export const handlers = [
       ctx.json({ ...body, id: Date.now().toString() })
     );
   }),
+
+  rest.put(`/todos`, (req, res, ctx) => {
+    const { id } = req.params;
+    const body = req.body as Todo;
+    return res(ctx.status(200), ctx.json(body));
+  }),
 ];

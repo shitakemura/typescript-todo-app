@@ -30,8 +30,24 @@ export const useTodoRepository = () => {
     return data as Todo;
   };
 
+  const updateTodo = async (body: Todo): Promise<Todo> => {
+    const response = await fetch("/todos", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    const data = await response.json();
+    return data as Todo;
+  };
+
   return {
     listTodos,
     createTodo,
+    updateTodo,
   };
 };

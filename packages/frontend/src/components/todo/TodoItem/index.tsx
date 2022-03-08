@@ -4,25 +4,30 @@ import { Todo } from "@/shared/models/todo";
 import { useRecoilState } from "recoil";
 import { todoListState } from "src/store/todo";
 import { useCallback } from "react";
+import { useUpdateTodo } from "src/usecases/todo/useUpdateTodo";
 
 type Props = {
   todo: Todo;
 };
 
 const TodoItem = ({ todo }: Props) => {
+  const { updateTodo } = useUpdateTodo();
   const { id, title, completed } = todo;
   const [todoList, setTodoList] = useRecoilState(todoListState);
 
-  const handleToggleTodo = useCallback(() => {
+  const handleToggleTodo = useCallback(async () => {
+    const body: Todo = { id, title, completed: !completed };
+    const updatedTodo = await updateTodo(body);
+
     const newList = todoList.map((item) => {
       if (item.id === id) {
-        return { ...item, completed: !item.completed };
+        return updatedTodo!;
       } else {
         return item;
       }
     });
     setTodoList(newList);
-  }, [id, todoList, setTodoList]);
+  }, [id, title, completed, todoList, updateTodo, setTodoList]);
 
   const handleDeleteTodo = useCallback(() => {
     const newList = todoList.filter((item) => item.id !== id);
