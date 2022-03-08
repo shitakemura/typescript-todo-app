@@ -4,10 +4,7 @@ import { Filter } from "src/models/filter";
 
 export const todoListState = atom({
   key: "todoListState",
-  default: [
-    { id: "id001", title: "Learn React", completed: true },
-    { id: "id002", title: "Learn TypeScript", completed: false },
-  ] as Todo[],
+  default: [] as Todo[],
 });
 
 export const todoListFilterState = atom({
