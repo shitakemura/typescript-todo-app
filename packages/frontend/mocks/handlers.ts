@@ -8,7 +8,10 @@ let todos: Todo[] = [
 ];
 
 export const handlers = [
-  rest.get(`/todos`, (_, res, ctx) => {
+  rest.get(`/todos`, (req, res, ctx) => {
+    const accessToken = req.headers.get("Authorization");
+    console.log(`accessToken: ${accessToken}`);
+
     return res(ctx.status(200), ctx.json(todos));
   }),
 
