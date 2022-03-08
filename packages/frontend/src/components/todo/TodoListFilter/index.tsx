@@ -1,11 +1,12 @@
 import { Button, HStack } from "@chakra-ui/react";
-import { Filter, FILTER_VALUES } from "../TodoList";
+import React from "react";
+import { useRecoilState } from "recoil";
+import { FILTER_VALUES } from "src/models/filter";
+import { todoListFilterState } from "src/store/todo";
 
-type Props = {
-  filter: Filter;
-};
+const TodoListFilter = () => {
+  const [filter, setFilter] = useRecoilState(todoListFilterState);
 
-const TodoListFilter = ({ filter }: Props) => {
   return (
     <HStack spacing={4}>
       {FILTER_VALUES.map((filterValue) => {
@@ -13,7 +14,9 @@ const TodoListFilter = ({ filter }: Props) => {
           <Button
             key={filterValue}
             colorScheme={filter === filterValue ? "teal" : undefined}
-            color={filter === filterValue ? "white" : undefined}>
+            color={filter === filterValue ? "white" : undefined}
+            value={filterValue}
+            onClick={() => setFilter(filterValue)}>
             {filterValue}
           </Button>
         );
