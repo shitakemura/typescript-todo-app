@@ -32,6 +32,7 @@ const TodoInput = () => {
         borderWidth={2}
         height={12}
         width={400}
+        value={inputValue}
         onChange={handleOnChange}
       />
       <Button paddingX={8} colorScheme='teal' onClick={handleAddTodo}>
