@@ -1,3 +1,4 @@
+import { Button, HStack } from "@chakra-ui/react";
 import { Filter, FILTER_VALUES } from "../TodoList";
 
 type Props = {
@@ -6,15 +7,18 @@ type Props = {
 
 const TodoListFilter = ({ filter }: Props) => {
   return (
-    <div>
+    <HStack spacing={4}>
       {FILTER_VALUES.map((filterValue) => {
         return (
-          <button type='button' key={filterValue}>
+          <Button
+            key={filterValue}
+            colorScheme={filter === filterValue ? "teal" : undefined}
+            color={filter === filterValue ? "white" : undefined}>
             {filterValue}
-          </button>
+          </Button>
         );
       })}
-    </div>
+    </HStack>
   );
 };
 

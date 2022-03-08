@@ -1,3 +1,4 @@
+import { VStack, List, ListItem } from "@chakra-ui/react";
 import { Todo } from "@/shared/models/todo";
 import TodoInput from "../TodoInput";
 import TodoListFilter from "../TodoListFilter";
@@ -14,15 +15,17 @@ const TodoList = () => {
   ];
 
   return (
-    <div>
+    <VStack w='full' spacing={10} paddingX={48} paddingY={16}>
       <TodoInput />
       <TodoListFilter filter={"ALL"} />
-      <ul>
+      <List w='full' paddingX={8}>
         {todos.map((todo) => (
-          <TodoItem key={todo.id} todo={todo} />
+          <ListItem key={todo.id} paddingY={2}>
+            <TodoItem todo={todo} />
+          </ListItem>
         ))}
-      </ul>
-    </div>
+      </List>
+    </VStack>
   );
 };
 
