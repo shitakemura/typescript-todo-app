@@ -6,14 +6,14 @@ import TodoListFilter from "../TodoListFilter";
 import TodoItem from "../TodoItem";
 
 const TodoList = () => {
-  const todos = useRecoilValue(filteredTodoListState);
+  const todoList = useRecoilValue(filteredTodoListState);
 
   return (
     <VStack w='full' spacing={10} paddingX={48} paddingY={16}>
       <TodoInput />
       <TodoListFilter />
       <List w='full' paddingX={8}>
-        {todos.map((todo) => (
+        {todoList.map((todo) => (
           <ListItem key={todo.id} paddingY={2}>
             <TodoItem todo={todo} />
           </ListItem>
