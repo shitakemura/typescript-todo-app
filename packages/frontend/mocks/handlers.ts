@@ -1,4 +1,4 @@
-import { Todo } from "@/shared/models/todo";
+import { Todo, TodoBody } from "@/shared/models/todo";
 import { rest } from "msw";
 
 let todos: Todo[] = [
@@ -10,5 +10,13 @@ let todos: Todo[] = [
 export const handlers = [
   rest.get(`/todos`, (_, res, ctx) => {
     return res(ctx.status(200), ctx.json(todos));
+  }),
+
+  rest.post(`/todos`, (req, res, ctx) => {
+    const body = req.body as TodoBody;
+    return res(
+      ctx.status(201),
+      ctx.json({ ...body, id: Date.now().toString() })
+    );
   }),
 ];
