@@ -1,5 +1,5 @@
-import { Todo } from "@/shared/models/todo";
 import { useState } from "react";
+import { Todo } from "@/shared/models/todo";
 import { useTodoRepository } from "repositories/todo";
 
 export const useUpdateTodo = () => {

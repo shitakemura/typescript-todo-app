@@ -1,11 +1,11 @@
-import { VStack, List, ListItem } from "@chakra-ui/react";
+import { useEffect } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
+import { VStack, List, ListItem } from "@chakra-ui/react";
 import { filteredTodoListState, todoListState } from "src/store/todo";
+import { useListTodos } from "src/usecases/todo/useListTodos";
 import TodoInput from "../TodoInput";
 import TodoListFilter from "../TodoListFilter";
 import TodoItem from "../TodoItem";
-import { useListTodos } from "src/usecases/todo/useListTodos";
-import { useEffect } from "react";
 
 const TodoList = () => {
   const { data } = useListTodos();

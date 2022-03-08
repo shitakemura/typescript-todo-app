@@ -1,9 +1,9 @@
+import { useCallback } from "react";
+import { useRecoilState } from "recoil";
 import { Checkbox, HStack, IconButton, Text } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { Todo } from "@/shared/models/todo";
-import { useRecoilState } from "recoil";
 import { todoListState } from "src/store/todo";
-import { useCallback } from "react";
 import { useUpdateTodo } from "src/usecases/todo/useUpdateTodo";
 import { useDeleteTodo } from "src/usecases/todo/useDeleteTodo";
 

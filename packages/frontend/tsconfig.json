@@ -16,19 +16,9 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/pages/*": ["src/pages/*"],
-      "@/styles/*": ["styles/*"],
-      "@/mocks/*": ["mocks/*"],
       "@/shared/*": ["../shared/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "types.d.ts",
-    "src/models/filter.ts"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types.d.ts"],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,5 @@
-import { Todo } from "@/shared/models/todo";
 import { atom, selector } from "recoil";
+import { Todo } from "@/shared/models/todo";
 import { Filter } from "src/models/filter";
 
 export const todoListState = atom({

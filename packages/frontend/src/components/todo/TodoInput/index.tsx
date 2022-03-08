@@ -1,7 +1,7 @@
-import { TodoBody } from "@/shared/models/todo";
-import { Button, HStack, Input } from "@chakra-ui/react";
 import React, { useCallback, useState } from "react";
 import { useSetRecoilState } from "recoil";
+import { Button, HStack, Input } from "@chakra-ui/react";
+import { TodoBody } from "@/shared/models/todo";
 import { todoListState } from "src/store/todo";
 import { useCreateTodo } from "src/usecases/todo/useCreateTodo";
 
