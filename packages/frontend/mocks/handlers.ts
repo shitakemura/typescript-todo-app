@@ -25,4 +25,8 @@ export const handlers = [
     const body = req.body as Todo;
     return res(ctx.status(200), ctx.json(body));
   }),
+
+  rest.delete(`/todos`, (_, res, ctx) => {
+    return res(ctx.status(200), ctx.json({}));
+  }),
 ];

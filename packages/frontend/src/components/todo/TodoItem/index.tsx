@@ -5,6 +5,7 @@ import { useRecoilState } from "recoil";
 import { todoListState } from "src/store/todo";
 import { useCallback } from "react";
 import { useUpdateTodo } from "src/usecases/todo/useUpdateTodo";
+import { useDeleteTodo } from "src/usecases/todo/useDeleteTodo";
 
 type Props = {
   todo: Todo;
@@ -12,6 +13,7 @@ type Props = {
 
 const TodoItem = ({ todo }: Props) => {
   const { updateTodo } = useUpdateTodo();
+  const { deleteTodo } = useDeleteTodo();
   const { id, title, completed } = todo;
   const [todoList, setTodoList] = useRecoilState(todoListState);
 
@@ -29,10 +31,11 @@ const TodoItem = ({ todo }: Props) => {
     setTodoList(newList);
   }, [id, title, completed, todoList, updateTodo, setTodoList]);
 
-  const handleDeleteTodo = useCallback(() => {
+  const handleDeleteTodo = useCallback(async () => {
+    await deleteTodo();
     const newList = todoList.filter((item) => item.id !== id);
     setTodoList(newList);
-  }, [id, todoList, setTodoList]);
+  }, [id, todoList, deleteTodo, setTodoList]);
 
   return (
     <HStack
