@@ -22,20 +22,24 @@ const TodoItem = ({ todo }: Props) => {
     const body: Todo = { userId, id, title, completed: !completed };
     const updatedTodo = await updateTodo(id, body);
 
-    const newList = todoList.map((item) => {
-      if (item.id === id) {
-        return updatedTodo!;
-      } else {
-        return item;
-      }
-    });
-    setTodoList(newList);
+    if (updatedTodo) {
+      const newList = todoList.map((item) => {
+        if (item.id === id) {
+          return updatedTodo!;
+        } else {
+          return item;
+        }
+      });
+      setTodoList(newList);
+    }
   }, [userId, id, title, completed, todoList, updateTodo, setTodoList]);
 
   const handleDeleteTodo = useCallback(async () => {
-    await deleteTodo(id);
-    const newList = todoList.filter((item) => item.id !== id);
-    setTodoList(newList);
+    const result = await deleteTodo(id);
+    if (result) {
+      const newList = todoList.filter((item) => item.id !== id);
+      setTodoList(newList);
+    }
   }, [id, todoList, deleteTodo, setTodoList]);
 
   useEffect(() => {

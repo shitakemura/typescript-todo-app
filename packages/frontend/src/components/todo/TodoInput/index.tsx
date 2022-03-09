@@ -22,8 +22,10 @@ const TodoInput = () => {
   const handleAddTodo = useCallback(async () => {
     const body: TodoBody = { title: inputValue, completed: false };
     const newTodo = await createTodo(body);
-    setTodoList((oldTodoList) => [...oldTodoList, newTodo!]);
-    resetInputValue();
+    if (newTodo) {
+      setTodoList((oldTodoList) => [...oldTodoList, newTodo!]);
+      resetInputValue();
+    }
   }, [inputValue, createTodo, setTodoList, resetInputValue]);
 
   useEffect(() => {

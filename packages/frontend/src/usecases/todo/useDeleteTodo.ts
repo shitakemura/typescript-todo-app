@@ -6,10 +6,11 @@ export const useDeleteTodo = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
-  const deleteTodo = async (id: string) => {
+  const deleteTodo = async (id: string): Promise<true | undefined> => {
     try {
       setIsLoading(true);
       await todoRepository.deleteTodo(id);
+      return true;
     } catch (error: any) {
       if (error instanceof Error) {
         setError(error);
