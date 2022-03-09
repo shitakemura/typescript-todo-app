@@ -44,12 +44,12 @@ export const useTodoRepository = () => {
     return data as Todo;
   };
 
-  const updateTodo = async (body: Todo): Promise<Todo> => {
+  const updateTodo = async (id: string, body: Todo): Promise<Todo> => {
     const accessToken = await getAccessTokenSilently({
       audience: process.env.NEXT_PUBLIC_AUTH0_API_AUDIENCE,
       scope: process.env.NEXT_PUBLIC_AUTH0_OPENID_CONNECT_SCOPE,
     });
-    const response = await fetch(`${baseUrl}/todos`, {
+    const response = await fetch(`${baseUrl}/todos/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -64,12 +64,12 @@ export const useTodoRepository = () => {
     return data as Todo;
   };
 
-  const deleteTodo = async (): Promise<void> => {
+  const deleteTodo = async (id: string): Promise<void> => {
     const accessToken = await getAccessTokenSilently({
       audience: process.env.NEXT_PUBLIC_AUTH0_API_AUDIENCE,
       scope: process.env.NEXT_PUBLIC_AUTH0_OPENID_CONNECT_SCOPE,
     });
-    const response = await fetch(`${baseUrl}/todos`, {
+    const response = await fetch(`${baseUrl}/todos/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

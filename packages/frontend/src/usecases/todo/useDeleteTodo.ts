@@ -5,9 +5,9 @@ export const useDeleteTodo = () => {
   const todoRepository = useTodoRepository();
   const [error, setError] = useState<Error | null>(null);
 
-  const deleteTodo = async () => {
+  const deleteTodo = async (id: string) => {
     try {
-      await todoRepository.deleteTodo();
+      await todoRepository.deleteTodo(id);
     } catch (error: any) {
       if (error instanceof Error) {
         setError(error);

@@ -19,7 +19,7 @@ const TodoItem = ({ todo }: Props) => {
 
   const handleToggleTodo = useCallback(async () => {
     const body: Todo = { userId, id, title, completed: !completed };
-    const updatedTodo = await updateTodo(body);
+    const updatedTodo = await updateTodo(id, body);
 
     const newList = todoList.map((item) => {
       if (item.id === id) {
@@ -32,7 +32,7 @@ const TodoItem = ({ todo }: Props) => {
   }, [userId, id, title, completed, todoList, updateTodo, setTodoList]);
 
   const handleDeleteTodo = useCallback(async () => {
-    await deleteTodo();
+    await deleteTodo(id);
     const newList = todoList.filter((item) => item.id !== id);
     setTodoList(newList);
   }, [id, todoList, deleteTodo, setTodoList]);
