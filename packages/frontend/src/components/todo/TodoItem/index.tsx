@@ -13,7 +13,7 @@ type Props = {
 
 const TodoItem = ({ todo }: Props) => {
   const { updateTodo } = useUpdateTodo();
-  const { deleteTodo } = useDeleteTodo();
+  const { isLoading, deleteTodo } = useDeleteTodo();
   const { userId, id, title, completed } = todo;
   const [todoList, setTodoList] = useRecoilState(todoListState);
 
@@ -60,6 +60,7 @@ const TodoItem = ({ todo }: Props) => {
         backgroundColor='white'
         p={4}
         boxSize={5}
+        isLoading={isLoading}
         icon={<DeleteIcon />}
         onClick={handleDeleteTodo}
       />

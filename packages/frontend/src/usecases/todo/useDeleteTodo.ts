@@ -3,10 +3,12 @@ import { useTodoRepository } from "src/repositories/todo";
 
 export const useDeleteTodo = () => {
   const todoRepository = useTodoRepository();
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
   const deleteTodo = async (id: string) => {
     try {
+      setIsLoading(true);
       await todoRepository.deleteTodo(id);
     } catch (error: any) {
       if (error instanceof Error) {
@@ -14,7 +16,9 @@ export const useDeleteTodo = () => {
       } else {
         setError(new Error(`Failed when delete todo`));
       }
+    } finally {
+      setIsLoading(false);
     }
   };
-  return { error, deleteTodo };
+  return { isLoading, error, deleteTodo };
 };

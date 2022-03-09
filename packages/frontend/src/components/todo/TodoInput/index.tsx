@@ -6,7 +6,7 @@ import { todoListState } from "src/store/todo";
 import { useCreateTodo } from "src/usecases/todo/useCreateTodo";
 
 const TodoInput = () => {
-  const { createTodo } = useCreateTodo();
+  const { isLoading, createTodo } = useCreateTodo();
   const [inputValue, setInputValue] = useState("");
   const setTodoList = useSetRecoilState(todoListState);
   const resetInputValue = useCallback(() => setInputValue(""), []);
@@ -35,7 +35,11 @@ const TodoInput = () => {
         value={inputValue}
         onChange={handleOnChange}
       />
-      <Button paddingX={8} colorScheme='teal' onClick={handleAddTodo}>
+      <Button
+        paddingX={8}
+        colorScheme='teal'
+        isLoading={isLoading}
+        onClick={handleAddTodo}>
         Add Todo
       </Button>
     </HStack>

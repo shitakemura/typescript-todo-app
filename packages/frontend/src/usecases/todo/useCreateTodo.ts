@@ -4,10 +4,12 @@ import { useTodoRepository } from "src/repositories/todo";
 
 export const useCreateTodo = () => {
   const todoRepository = useTodoRepository();
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
   const createTodo = async (body: TodoBody): Promise<Todo | undefined> => {
     try {
+      setIsLoading(true);
       const todo = await todoRepository.createTodo(body);
       return todo;
     } catch (error: any) {
@@ -16,7 +18,9 @@ export const useCreateTodo = () => {
       } else {
         setError(new Error(`Failed when create todo`));
       }
+    } finally {
+      setIsLoading(false);
     }
   };
-  return { error, createTodo };
+  return { isLoading, error, createTodo };
 };
