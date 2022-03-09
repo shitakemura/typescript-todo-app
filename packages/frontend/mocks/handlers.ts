@@ -9,30 +9,42 @@ let todos: Todo[] = [
 ];
 
 export const handlers = [
-  rest.get(`/todos`, (req, res, ctx) => {
-    const accessToken = req.headers.get("Authorization");
-    console.log(`accessToken: ${accessToken}`);
-    return res(
-      ctx.status(200),
-      ctx.json(todos.filter((todo) => todo.userId === "user001"))
-    );
-  }),
+  rest.get(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT_URL}/todos`,
+    (req, res, ctx) => {
+      const accessToken = req.headers.get("Authorization");
+      console.log(`accessToken: ${accessToken}`);
+      return res(
+        ctx.status(200),
+        ctx.json(todos.filter((todo) => todo.userId === "user001"))
+      );
+    }
+  ),
 
-  rest.post(`/todos`, (req, res, ctx) => {
-    const body = req.body as TodoBody;
-    return res(
-      ctx.status(201),
-      ctx.json({ ...body, userId: "user001", id: Date.now().toString() })
-    );
-  }),
+  rest.post(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT_URL}/todos`,
+    (req, res, ctx) => {
+      const body = req.body as TodoBody;
+      return res(
+        ctx.status(201),
+        ctx.json({ ...body, userId: "user001", id: Date.now().toString() })
+      );
+    }
+  ),
 
-  rest.put(`/todos`, (req, res, ctx) => {
-    const { id } = req.params;
-    const body = req.body as Todo;
-    return res(ctx.status(200), ctx.json(body));
-  }),
+  rest.put(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT_URL}/todos`,
+    (req, res, ctx) => {
+      const { id } = req.params;
+      const body = req.body as Todo;
+      return res(ctx.status(200), ctx.json(body));
+    }
+  ),
 
-  rest.delete(`/todos`, (_, res, ctx) => {
-    return res(ctx.status(200), ctx.json({}));
-  }),
+  rest.delete(
+    `${process.env.NEXT_PUBLIC_API_ENDPOINT_URL}/todos`,
+    (_, res, ctx) => {
+      return res(ctx.status(200), ctx.json({}));
+    }
+  ),
 ];

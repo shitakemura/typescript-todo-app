@@ -2,6 +2,7 @@ import { Todo, TodoBody } from "@/shared/models/todo";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export const useTodoRepository = () => {
+  const baseUrl = process.env.NEXT_PUBLIC_API_ENDPOINT_URL!;
   const { getAccessTokenSilently } = useAuth0();
 
   const listTodos = async (): Promise<Todo[]> => {
@@ -9,7 +10,7 @@ export const useTodoRepository = () => {
       audience: process.env.NEXT_PUBLIC_AUTH0_API_AUDIENCE,
       scope: process.env.NEXT_PUBLIC_AUTH0_OPENID_CONNECT_SCOPE,
     });
-    const response = await fetch("/todos", {
+    const response = await fetch(`${baseUrl}/todos`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +29,7 @@ export const useTodoRepository = () => {
       audience: process.env.NEXT_PUBLIC_AUTH0_API_AUDIENCE,
       scope: process.env.NEXT_PUBLIC_AUTH0_OPENID_CONNECT_SCOPE,
     });
-    const response = await fetch("/todos", {
+    const response = await fetch(`${baseUrl}/todos`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +49,7 @@ export const useTodoRepository = () => {
       audience: process.env.NEXT_PUBLIC_AUTH0_API_AUDIENCE,
       scope: process.env.NEXT_PUBLIC_AUTH0_OPENID_CONNECT_SCOPE,
     });
-    const response = await fetch("/todos", {
+    const response = await fetch(`${baseUrl}/todos`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -68,7 +69,7 @@ export const useTodoRepository = () => {
       audience: process.env.NEXT_PUBLIC_AUTH0_API_AUDIENCE,
       scope: process.env.NEXT_PUBLIC_AUTH0_OPENID_CONNECT_SCOPE,
     });
-    const response = await fetch("/todos", {
+    const response = await fetch(`${baseUrl}/todos`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
