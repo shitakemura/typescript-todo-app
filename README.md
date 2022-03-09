@@ -5,7 +5,7 @@ yarn workspaces monorepo project
 - ./
   - packages
     - frontend
-    - infra-backend
+    - backend
     - shared
 
 ## frontend

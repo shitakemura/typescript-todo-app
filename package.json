@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "front:dev": "yarn workspace frontend dev",
-    "front:lint": "yarn workspace frontend lint",
-    "front:test": "yarn workspace frontend test",
     "front:test:ci": "yarn workspace frontend test:ci",
-    "front:build": "yarn workspace frontend build"
+    "front:build": "yarn workspace frontend build",
+    "back:synth": "yarn workspace backend cdk synth",
+    "back:diff": "yarn workspace backend ckd diff",
+    "back:deploy": "yarn workspace backend cdk deploy"
   },
   "workspaces": {
     "packages": [
