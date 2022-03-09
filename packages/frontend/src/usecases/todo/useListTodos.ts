@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import { Todo } from "@/shared/models/todo";
-import { useTodoRepository } from "repositories/todo";
+import { useTodoRepository } from "src/repositories/todo";
 
 export const useListTodos = () => {
   const todoRepository = useTodoRepository();

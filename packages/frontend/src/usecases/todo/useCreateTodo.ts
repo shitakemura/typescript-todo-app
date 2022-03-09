@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Todo, TodoBody } from "@/shared/models/todo";
-import { useTodoRepository } from "repositories/todo";
+import { useTodoRepository } from "src/repositories/todo";
 
 export const useCreateTodo = () => {
   const todoRepository = useTodoRepository();

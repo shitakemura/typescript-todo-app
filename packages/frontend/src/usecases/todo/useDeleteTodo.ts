@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTodoRepository } from "repositories/todo";
+import { useTodoRepository } from "src/repositories/todo";
 
 export const useDeleteTodo = () => {
   const todoRepository = useTodoRepository();
