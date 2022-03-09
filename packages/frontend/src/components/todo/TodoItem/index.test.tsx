@@ -4,6 +4,7 @@ import TodoItem from "./index";
 import { RecoilRoot } from "recoil";
 
 let todo: Todo = {
+  userId: "user001",
   id: "id003",
   title: "test todo title",
   completed: true,
