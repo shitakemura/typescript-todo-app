@@ -1,5 +1,8 @@
 # Fullstack Typescript Todo App
 
+![ts-todo-app](https://user-images.githubusercontent.com/15320295/157460441-38575ffb-712e-4431-98d5-e561117fc945.gif)
+
+
 yarn workspaces monorepo project
 
 - ./
