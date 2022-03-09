@@ -33,11 +33,11 @@ export class BackendStack extends Stack {
     const commonLambdaProps: Omit<NodejsFunctionProps, "entry"> = {
       handler: "handler",
       environment: {
-        NODE_OPTIONS: "--enable-source-maps",
+        // NODE_OPTIONS: "--enable-source-maps",
         TODO_TABLE: todoTable.tableName,
       },
       bundling: {
-        sourceMap: true,
+        // sourceMap: true,
         minify: true,
       },
     };
