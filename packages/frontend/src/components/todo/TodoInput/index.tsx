@@ -1,15 +1,16 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useSetRecoilState } from "recoil";
-import { Button, HStack, Input } from "@chakra-ui/react";
+import { Button, HStack, Input, useToast } from "@chakra-ui/react";
 import { TodoBody } from "@/shared/models/todo";
 import { todoListState } from "src/store/todo";
 import { useCreateTodo } from "src/usecases/todo/useCreateTodo";
 
 const TodoInput = () => {
-  const { isLoading, createTodo } = useCreateTodo();
+  const { isLoading, error: createError, createTodo } = useCreateTodo();
   const [inputValue, setInputValue] = useState("");
   const setTodoList = useSetRecoilState(todoListState);
   const resetInputValue = useCallback(() => setInputValue(""), []);
+  const toast = useToast();
 
   const handleOnChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,6 +25,12 @@ const TodoInput = () => {
     setTodoList((oldTodoList) => [...oldTodoList, newTodo!]);
     resetInputValue();
   }, [inputValue, createTodo, setTodoList, resetInputValue]);
+
+  useEffect(() => {
+    if (createError) {
+      toast({ title: createError.message, status: "error", isClosable: true });
+    }
+  }, [createError]);
 
   return (
     <HStack spacing={6}>

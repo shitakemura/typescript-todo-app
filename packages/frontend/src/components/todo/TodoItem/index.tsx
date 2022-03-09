@@ -1,6 +1,6 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { Checkbox, HStack, IconButton, Text } from "@chakra-ui/react";
+import { Checkbox, HStack, IconButton, Text, useToast } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { Todo } from "@/shared/models/todo";
 import { todoListState } from "../../../store/todo";
@@ -12,10 +12,11 @@ type Props = {
 };
 
 const TodoItem = ({ todo }: Props) => {
-  const { updateTodo } = useUpdateTodo();
-  const { isLoading, deleteTodo } = useDeleteTodo();
+  const { error: updateError, updateTodo } = useUpdateTodo();
+  const { isLoading, error: deleteError, deleteTodo } = useDeleteTodo();
   const { userId, id, title, completed } = todo;
   const [todoList, setTodoList] = useRecoilState(todoListState);
+  const toast = useToast();
 
   const handleToggleTodo = useCallback(async () => {
     const body: Todo = { userId, id, title, completed: !completed };
@@ -36,6 +37,18 @@ const TodoItem = ({ todo }: Props) => {
     const newList = todoList.filter((item) => item.id !== id);
     setTodoList(newList);
   }, [id, todoList, deleteTodo, setTodoList]);
+
+  useEffect(() => {
+    if (updateError) {
+      toast({ title: updateError.message, status: "error", isClosable: true });
+    }
+  }, [updateError]);
+
+  useEffect(() => {
+    if (deleteError) {
+      toast({ title: deleteError.message, status: "error", isClosable: true });
+    }
+  }, [deleteError]);
 
   return (
     <HStack
