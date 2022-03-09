@@ -27,7 +27,7 @@ const Home = () => {
     return <Login />;
   } else {
     return (
-      <VStack>
+      <VStack alignItems='stretch' spacing={16}>
         <Header />
         <RecoilRoot>
           <TodoList />

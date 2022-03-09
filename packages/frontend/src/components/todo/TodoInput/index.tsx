@@ -40,7 +40,6 @@ const TodoInput = () => {
         borderColor='teal.500'
         borderWidth={2}
         height={12}
-        width={400}
         value={inputValue}
         onChange={handleOnChange}
       />

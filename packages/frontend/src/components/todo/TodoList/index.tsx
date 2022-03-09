@@ -18,7 +18,7 @@ const TodoList = () => {
   }, [data, setTodoList]);
 
   return (
-    <VStack w='full' spacing={10} paddingX={48} paddingY={16}>
+    <VStack alignItems='stretch' paddingX={[8, 24, 36, 64]} spacing={12}>
       <TodoInput />
       <TodoListFilter />
       <List w='full' paddingX={8}>

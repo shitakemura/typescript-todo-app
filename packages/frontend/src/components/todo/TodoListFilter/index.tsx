@@ -8,7 +8,7 @@ const TodoListFilter = () => {
   const [filter, setFilter] = useRecoilState(todoListFilterState);
 
   return (
-    <HStack spacing={4}>
+    <HStack justifyContent='center' spacing={4}>
       {FILTER_VALUES.map((filterValue) => {
         return (
           <Button

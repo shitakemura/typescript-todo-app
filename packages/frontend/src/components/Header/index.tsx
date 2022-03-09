@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Stack, HStack, Text } from "@chakra-ui/react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useCallback } from "react";
 
@@ -8,16 +8,15 @@ type Props = {
 
 const HeaderContainer = ({ children }: Props) => {
   return (
-    <Flex
+    <HStack
       align='center'
       justify='space-between'
-      wrap='wrap'
-      w='100%'
+      w='full'
       p={8}
       bg='teal.400'
       color='white'>
       {children}
-    </Flex>
+    </HStack>
   );
 };
 
@@ -28,7 +27,7 @@ const MenuLinks = () => {
   }, [logout]);
 
   return (
-    <Box>
+    <Stack>
       {isAuthenticated ? (
         <Text
           fontWeight='bold'
@@ -37,7 +36,7 @@ const MenuLinks = () => {
           Logout
         </Text>
       ) : null}
-    </Box>
+    </Stack>
   );
 };
 
