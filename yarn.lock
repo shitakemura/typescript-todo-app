@@ -29,6 +29,21 @@
     promise-polyfill "^8.2.1"
     unfetch "^4.2.0"
 
+"@aws-cdk/aws-apigatewayv2-alpha@^2.15.0-alpha.0":
+  version "2.15.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-apigatewayv2-alpha/-/aws-apigatewayv2-alpha-2.15.0-alpha.0.tgz#b53ac8a5f6f5cf0a8e56329128ac3430ecf163b1"
+  integrity sha512-yHqXsex2/yhUmgfp7lFrjSU7ZPVb+7+4HgAyz48AoUTgsUzgmCX3wHJ5VrkHKqRy9uX2F/teUh0I+mMGb9xLew==
+
+"@aws-cdk/aws-apigatewayv2-authorizers-alpha@^2.15.0-alpha.0":
+  version "2.15.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-apigatewayv2-authorizers-alpha/-/aws-apigatewayv2-authorizers-alpha-2.15.0-alpha.0.tgz#272facaaea984e312d1974eb01e9ba2cc6f2f4c3"
+  integrity sha512-45784+FP9ULDgfMEm/VN0aiOyKV9Cm2qpMcnWB+npA8TOAJ6LlsBDyFgDY3CePHxPyEoolqkzJEflWfLLITYqg==
+
+"@aws-cdk/aws-apigatewayv2-integrations-alpha@^2.15.0-alpha.0":
+  version "2.15.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-apigatewayv2-integrations-alpha/-/aws-apigatewayv2-integrations-alpha-2.15.0-alpha.0.tgz#584b8070a14dc56165b5a10afc908c8fe688c0bb"
+  integrity sha512-YrLbf08KBvl7Hz9ANhkYqbPzkUjW3iey9dIEjgjxyhUkPZmmPucyi/Ct+hD9k163Q87tjHfyOL3tkGXOJ413Ag==
+
 "@aws-cdk/cfnspec@2.13.0":
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/cfnspec/-/cfnspec-2.13.0.tgz#d188583d2c02207079ed549a41aff6361f687b83"
@@ -1703,6 +1718,11 @@
   resolved "https://registry.yarnpkg.com/@types/aria-query/-/aria-query-4.2.2.tgz#ed4e0ad92306a704f9fb132a0cfcf77486dbe2bc"
   integrity sha512-HnYpAE1Y6kRyKM/XkEuiRQhTHvkzMBurTHnpFLYLBGPIylZNPs9jJcuOOYWxPLJCSEtmZT0Y8rHDokKN7rRTig==
 
+"@types/aws-lambda@^8.10.93":
+  version "8.10.93"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.93.tgz#3e2c80894122477040aabf29b7320556f5702a76"
+  integrity sha512-Vsyi9ogDAY3REZDjYnXMRJJa62SDvxHXxJI5nGDQdZW058dDE+av/anynN2rLKbCKXDRNw3D/sQmqxVflZFi4A==
+
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.14", "@types/babel__core@^7.1.7":
   version "7.1.18"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.18.tgz#1a29abcc411a9c05e2094c98f9a1b7da6cdf49f8"
@@ -1886,6 +1906,11 @@
   integrity sha512-oKZe+Mf4ioWlMuzVBaXQ9WDnEm1+umLx0InILg+yvZVBBDmzV5KfZyLrCvadtWcx8+916jLmHafcmqqffl+iIw==
   dependencies:
     "@types/jest" "*"
+
+"@types/uuid@^8.3.4":
+  version "8.3.4"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-8.3.4.tgz#bd86a43617df0594787d38b735f55c805becf1bc"
+  integrity sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==
 
 "@types/warning@^3.0.0":
   version "3.0.0"
@@ -2310,7 +2335,7 @@ aws-cdk@2.13.0:
     yaml "1.10.2"
     yargs "^16.2.0"
 
-aws-sdk@^2.848.0, aws-sdk@^2.979.0:
+aws-sdk@^2.1089.0, aws-sdk@^2.848.0, aws-sdk@^2.979.0:
   version "2.1089.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1089.0.tgz#198ee116f3d6f70cd26cd6f7efa6adba46a54768"
   integrity sha512-QhawXCxhOLR+SJHuKXNzyx1hd+oA1HqaDRjbeTKUrz7g2KF4EyPWvLwzf1fNaOTPK3Vp3JDYijusdKlfV69efw==
@@ -3233,6 +3258,11 @@ domexception@^2.0.1:
   integrity sha512-yxJ2mFy/sibVQlu5qHjOkf9J3K6zgmCxgJ94u2EdvDOV09H+32LtRswEcUsmUWN72pVLOEnTSRaIVVzVQgS0dg==
   dependencies:
     webidl-conversions "^5.0.0"
+
+dotenv@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.0.tgz#c619001253be89ebb638d027b609c75c26e47411"
+  integrity sha512-qD9WU0MPM4SWLPJy/r2Be+2WgQj8plChsyrCNQzW/0WjvcJQiKQJ9mH3ZgB3fxbUUxgc/11ZJ0Fi5KiimWGz2Q==
 
 dreamopt@~0.8.0:
   version "0.8.0"
