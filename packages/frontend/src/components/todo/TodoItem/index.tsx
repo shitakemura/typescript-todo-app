@@ -14,11 +14,11 @@ type Props = {
 const TodoItem = ({ todo }: Props) => {
   const { updateTodo } = useUpdateTodo();
   const { deleteTodo } = useDeleteTodo();
-  const { id, title, completed } = todo;
+  const { userId, id, title, completed } = todo;
   const [todoList, setTodoList] = useRecoilState(todoListState);
 
   const handleToggleTodo = useCallback(async () => {
-    const body: Todo = { id, title, completed: !completed };
+    const body: Todo = { userId, id, title, completed: !completed };
     const updatedTodo = await updateTodo(body);
 
     const newList = todoList.map((item) => {
@@ -29,7 +29,7 @@ const TodoItem = ({ todo }: Props) => {
       }
     });
     setTodoList(newList);
-  }, [id, title, completed, todoList, updateTodo, setTodoList]);
+  }, [userId, id, title, completed, todoList, updateTodo, setTodoList]);
 
   const handleDeleteTodo = useCallback(async () => {
     await deleteTodo();

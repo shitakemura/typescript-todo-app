@@ -5,7 +5,9 @@
   "scripts": {
     "front:dev": "yarn workspace frontend dev",
     "front:lint": "yarn workspace frontend lint",
-    "front:test": "yarn workspace frontend test"
+    "front:test": "yarn workspace frontend test",
+    "front:test:ci": "yarn workspace frontend test:ci",
+    "front:build": "yarn workspace frontend build"
   },
   "workspaces": {
     "packages": [
