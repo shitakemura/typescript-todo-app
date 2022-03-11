@@ -46,13 +46,13 @@ const TodoItem = ({ todo }: Props) => {
     if (updateError) {
       toast({ title: updateError.message, status: "error", isClosable: true });
     }
-  }, [updateError]);
+  }, [updateError, toast]);
 
   useEffect(() => {
     if (deleteError) {
       toast({ title: deleteError.message, status: "error", isClosable: true });
     }
-  }, [deleteError]);
+  }, [deleteError, toast]);
 
   return (
     <HStack

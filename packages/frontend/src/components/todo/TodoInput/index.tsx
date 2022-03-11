@@ -32,7 +32,7 @@ const TodoInput = () => {
     if (createError) {
       toast({ title: createError.message, status: "error", isClosable: true });
     }
-  }, [createError]);
+  }, [createError, toast]);
 
   return (
     <HStack spacing={6}>
